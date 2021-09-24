@@ -104,7 +104,7 @@ var codeSignals = []CodeSignal{
 		},
 	},
 	{
-		Command: []string{"sign", "打卡", "签到"},
+		Command: []string{ "打卡", "签到"},
 		Handle: func(sender *Sender) interface{} {
 			//if sender.Type == "tgg" {
 			//	sender.Type = "tg"
