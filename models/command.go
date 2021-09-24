@@ -300,7 +300,7 @@ var codeSignals = []CodeSignal{
 			return fmt.Sprintf("余额%d", GetCoin(sender.UserID))
 		},
 	},
-/*{
+{
 		Command: []string{"查询", "query"},
 		Handle: func(sender *Sender) interface{} {
 			sender.handleJdCookies(func(ck *JdCookie) {
@@ -327,7 +327,7 @@ var codeSignals = []CodeSignal{
 			})
 			return nil
 		},
-	},*/
+	},
 
 
 {
