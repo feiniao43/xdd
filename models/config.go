@@ -86,9 +86,7 @@ func initConfig() {
 	}
 	if Config.Master == "" {
 		Config.Master = "xxxx"
-	}
-	if Config.CTime == "" {
-		Config.CTime = "10"
+
 	}
 	if Config.Mode != Parallel {
 		Config.Mode = Balance
