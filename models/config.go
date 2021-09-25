@@ -36,7 +36,6 @@ type Yaml struct {
 	IsHelp              bool   `yaml:"IsHelp"`
 	IsOldV4             bool   `yaml:"IsOldV4"`
 	ApiToken            string `yaml:"ApiToken"`
-	Wskey               bool   `yaml:"Wskey"`
 	TGURL               string `yaml:"TGURL"`
 	SMSAddress          string `yaml:"SMSAddress"`
 	Node                string
@@ -69,7 +68,7 @@ func initConfig() {
 		s, _ := ioutil.ReadAll(f)
 		if len(s) == 0 {
 			logs.Info("下载配置%s", name)
-			r, err := httplib.Get(GhProxy + "https://raw.githubusercontent.com/764763903a/xdd-plus/main/conf/demo_" + name).Response()
+			r, err := httplib.Get(GhProxy + "https://raw.githubusercontent.com/feiniao43/xdd/main/conf/demo_" + name).Response()
 			if err == nil {
 				io.Copy(f, r.Body)
 			}
