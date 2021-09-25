@@ -89,11 +89,11 @@ var handleMessage = func(msgs ...interface{}) interface{} {
 			if len(ss) > 0 {
 				if !sender.IsAdmin {
 					coin := GetCoin(sender.UserID)
-					if coin < 50 {
-						return "推一推需要50个许愿币。"
+					if coin < 150 {
+						return "推一推需要150个许愿币。"
 					}
-					RemCoin(sender.UserID, 50)
-					sender.Reply("推一推即将开始，已扣除50个许愿币。")
+					RemCoin(sender.UserID, 150)
+					sender.Reply("推一推即将开始，已扣除150个许愿币。")
 				}
 				runTask(&Task{Path: "jd_tyt.js", Envs: []Env{
 					{Name: "tytpacketId", Value: ss[1]},
