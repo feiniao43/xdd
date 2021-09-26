@@ -21,7 +21,7 @@ let cookiesArr = [],
 let tytpacketId = '';
 if (process.env.tytpacketId) {
     tytpacketId = process.env.tytpacketId;
-}
+} 
 if ($.isNode()) {
     Object.keys(jdCookieNode).forEach((item) => {
             cookiesArr.push(jdCookieNode[item])
