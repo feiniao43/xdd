@@ -139,11 +139,12 @@ var codeSignals = []CodeSignal{
 			if first {
 				db.Model(User{}).Select("count(id) as total").Where("active_at > ?", zero).Pluck("total", &total)
 				coin := 5
-				if total[0]%25 == 0 {
-					coin = 30
-				}
 				if total[0]%50 == 0 {
-					coin = 20
+					coin = 25
+				}
+				if total[0]%4 == 1 {
+					coin = 10
+			
 				}
 				db.Model(&u).Updates(map[string]interface{}{
 					"active_at": ntime,
@@ -444,11 +445,11 @@ var codeSignals = []CodeSignal{
 			} else {
 				if r == 9 {
 					cost *= 2
-					sender.Reply(fmt.Sprintf("恭喜你幸运暴击x2获得%d枚许愿币，20秒后自动转入余额。", cost))
-					time.Sleep(time.Second * 20)
+					sender.Reply(fmt.Sprintf("恭喜你幸运暴击x2获得%d枚许愿币，5秒后自动转入余额。", cost))
+					time.Sleep(time.Second * 5)
 				} else {
-					sender.Reply(fmt.Sprintf("很幸运你获得%d枚许愿币，10秒后自动转入余额。", cost))
-					time.Sleep(time.Second * 10)
+					sender.Reply(fmt.Sprintf("很幸运你获得%d枚许愿币，5秒后自动转入余额。", cost))
+					time.Sleep(time.Second * 5)
 				}
 				sender.Reply(fmt.Sprintf("%d枚许愿币已到账。", cost))
 			}
@@ -666,11 +667,11 @@ var codeSignals = []CodeSignal{
 			}
 			mx[sender.UserID] = true
 			if db.Model(User{}).Where("number = ? ", sender.UserID).Update(
-				"coin", gorm.Expr(fmt.Sprintf("coin + %d", 3)),
+				"coin", gorm.Expr(fmt.Sprintf("coin + %d", 5)),
 			).RowsAffected == 0 {
 				return "先去打卡吧你。"
 			}
-			return "许愿币+3"
+			return "许愿币+5"
 		},
 	},
 	{
