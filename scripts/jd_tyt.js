@@ -522,7 +522,7 @@ function Env(t, e) {
                             "open-url": e,
                             "media-url": s
                         }
-                    }
+                    } 
                     if (this.isSurge()) {
                         let e = t.url || t.openUrl || t["open-url"];
                         return {
