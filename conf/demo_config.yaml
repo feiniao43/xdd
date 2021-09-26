@@ -3,14 +3,14 @@ containers:
   - address:  #青龙2.2、青龙2.8、青龙2.9 v1v2v3v4v5访问地址（根据自己ip填）
     username:  #青龙2.2、青龙2.8、青龙2.9 v1v2v3v4v5访问地址（根据自己ip填）
     password:  #青龙2.2、青龙2.8、青龙2.9 v1v2v3v4v5访问地址（根据自己ip填）
-    cid: admin
-    secret: admin
+    cid:   ## 用于配置2.9+的 应用，配置后，xdd不会顶掉青龙登录
+    secret:   ## 用于配置2.9+的 应用，配置后，xdd不会顶掉青龙登录
     weigth:  
     mode: parallel
     limit: 9999 #限制容器ck数目
 theme: /root/xdd/admin.html #自定义主题，支持本地、网络路径（本地文件在/xdd/xdd/theme/kuduan.html，自行测试主题）
 static: ./static #静态文件 便于自定义二维码页面时，引入css、js等文件（不用动）
-master: jd_xxxxx #管理员账户pin，有多个用'&'拼接（访问ip:8080/admin使用）可以自定义密码 后面不要有注释删除注释即可
+master:  #管理员账户pin，有多个用'&'拼接（访问ip:8080/admin使用）可以自定义密码如  admin 后面不能有注释，配置后删除
 database:  #数据库位置 #（强迫症的我还是给它找了个家 不用动）
 qywx_key:  #企业微信推送key（这个就是企业微信机器人的key）
 daily_push: #定时任务（这个我暂时没有配置）
