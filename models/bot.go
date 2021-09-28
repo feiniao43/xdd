@@ -88,12 +88,15 @@ var handleMessage = func(msgs ...interface{}) interface{} {
 			ss := regexp.MustCompile(`packetId=(\S+)(&|&amp;)currentActId`).FindStringSubmatch(msg)
 			if len(ss) > 0 {
 				if !sender.IsAdmin {
-					coin := GetCoin(sender.UserID)
-					if coin < 100 {
-						return "推一推需要100个许愿币。"
+					if Config.tytnum == 0 {
+						Config.tytnum = 8
 					}
-					RemCoin(sender.UserID, 100)
-					sender.Reply("推一推即将开始，已扣除100个许愿币。")
+					coin := GetCoin(sender.UserID)
+					if coin < Config.tytnum {
+						sender.Reply(fmt.Sprintf("推一推需要%d个互助值",Config.tytnum))
+					}
+					RemCoin(sender.UserID, 8)
+					sender.Reply(fmt.Sprintf("推一推即将开始，已扣除%d个互助值",Config.tytnum))
 				}
 				runTask(&Task{Path: "jd_tyt.js", Envs: []Env{
 					{Name: "tytpacketId", Value: ss[1]},
@@ -107,7 +110,7 @@ var handleMessage = func(msgs ...interface{}) interface{} {
 			ss := regexp.MustCompile(`pt_pin=([^;=\s]+);\s*pt_key=([^;=\s]+)`).FindAllStringSubmatch(msg, -1)
 
 			if len(ss) > 0 {
-				sender.Reply(fmt.Sprintf("正确格式是pt_key=xxx;pt_pin=xxx;,pt_key在前,pt_pin在后,这个符号;别忘记了！"))
+				sender.Reply(fmt.Sprintf("正确格式是pt_key=xxx;pt_pin=xxx;,pt_key在前,pt_pin在后,这个符号  ;  别忘记了！"))
 				
 			}
 		}
