@@ -43,6 +43,9 @@ type Yaml struct {
 	Pip                 string
 	NoAdmin             bool   `yaml:"no_admin"`
 	QbotConfigFile      string `yaml:"qbot_config_file"`
+	IsAddFriend         bool   `yaml:"IsAddFriend"`
+	Lim                 int    `yaml:"Lim"`
+        tytnum              int    `yaml:"tytnum"`
 	Repos               []Repo
 	HttpProxyServerPort int `yaml:"http_proxy_server_port"`
 }
