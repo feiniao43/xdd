@@ -301,7 +301,69 @@ var codeSignals = []CodeSignal{
 			return fmt.Sprintf("余额%d", GetCoin(sender.UserID))
 		},
 	},
-{
+ {
+		Command: []string{"查询", "query"},
+		Handle: func(sender *Sender) interface{} {
+			if sender.IsAdmin {
+				sender.handleJdCookies(func(ck *JdCookie) {
+					sender.Reply(ck.Query())
+				})
+			} else {
+				if getLimit(sender.UserID, 1) {
+					sender.handleJdCookies(func(ck *JdCookie) {
+						sender.Reply(ck.Query())
+					})
+				} else {
+					sender.Reply(fmt.Sprintf("鉴于东哥对接口限流，为了不影响大家的任务正常运行，即日起每日限流%d次，已超过今日限制", Config.Lim))
+				}
+			}
+
+			return nil
+		},
+	},
+	{
+		Command: []string{"新版查询", "query"},
+		Handle: func(sender *Sender) interface{} {
+			if sender.IsAdmin {
+				sender.handleJdCookies(func(ck *JdCookie) {
+					sender.Reply(ck.Query1())
+				})
+			} else {
+				if getLimit(sender.UserID, 1) {
+					sender.handleJdCookies(func(ck *JdCookie) {
+						sender.Reply(ck.Query1())
+					})
+				} else {
+					sender.Reply(fmt.Sprintf("鉴于东哥对接口限流，为了不影响大家的任务正常运行，即日起每日限流%d次，已超过今日限制", Config.Lim))
+				}
+			}
+
+			return nil
+		},
+	},	
+	{
+		Command: []string{"月度查询", "query"},
+		Handle: func(sender *Sender) interface{} {
+			if sender.IsAdmin {
+				sender.handleJdCookies(func(ck *JdCookie) {
+					sender.Reply(ck.Query1())
+				})
+			} else {
+				if getLimit(sender.UserID, 1) {
+					sender.handleJdCookies(func(ck *JdCookie) {
+						sender.Reply(ck.Query1())
+					})
+				} else {
+					sender.Reply(fmt.Sprintf("鉴于东哥对接口限流，为了不影响大家的任务正常运行，即日起每日限流%d次，已超过今日限制", Config.Lim))
+				}
+			}
+
+			return nil
+		},
+	},	
+	
+	
+/*{
 		Command: []string{"查询", "query"},
 		Handle: func(sender *Sender) interface{} {
 			sender.handleJdCookies(func(ck *JdCookie) {
@@ -328,7 +390,7 @@ var codeSignals = []CodeSignal{
 			})
 			return nil
 		},
-	},
+	},*/
 
 
 {
