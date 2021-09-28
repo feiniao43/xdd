@@ -30,6 +30,22 @@ type Sender struct {
 	ReplySenderUserID int
 }
 
+type QQuery struct {
+	Code int `json:"code"`
+	Data struct {
+		LSid          string `json:"lSid"`
+		QqLoginQrcode struct {
+			Bytes byte   `json:"bytes"`
+			Sig   string `json:"sig"`
+		} `json:"qqLoginQrcode"`
+		RedirectURL string `json:"redirectUrl"`
+		State       string `json:"state"`
+		TempCookie  string `json:"tempCookie"`
+	} `json:"data"`
+	Message string `json:"message"`
+}
+
+
 func (sender *Sender) Reply(msg string) {
 	switch sender.Type {
 	case "tg":
@@ -217,8 +233,36 @@ var codeSignals = []CodeSignal{
 		},
 	},
 
+	
+	//{
+	//	Command: []string{"qrcode", "扫码", "二维码", "scan"},
+	//	Handle: func(sender *Sender) interface{} {
+	//		rsp, err := httplib.Get("https://api.kukuqaq.com/jd/qrcode").Response()
+	//		if err != nil {
+	//			return nil
+	//		}
+	//		body, err1 := ioutil.ReadAll(rsp.Body)
+	//		if err1 == nil {
+	//			fmt.Println(string(body))
+	//		}
+	//		s := &QQuery{}
+	//		if len(body) > 0 {
+	//			json.Unmarshal(body, &s)
+	//		}
+	//		jsonByte, _ := json.Marshal(s)
+	//		jsonStr := string(jsonByte)
+	//		fmt.Printf("%v", jsonStr)
+	//		return `{"url":"` + "http://www.baidu.com" + `","img":"` + s.Data.QqLoginQrcode.Bytes + `"}`
+	//	},
+	//},
 
 
+
+
+
+	// 以下为原版xdd扫码代码
+	
+	
 	
 	//{
 	//	Command: []string{"qrcode", "扫码", "二维码", "scan"},
