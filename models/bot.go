@@ -91,7 +91,7 @@ var handleMessage = func(msgs ...interface{}) interface{} {
 				if !sender.IsAdmin {
 					coin := GetCoin(sender.UserID)
 					if coin < 100 {
-						return "推一推需要100个许愿币。"
+						return "推一推需要100个许愿币，努力赚许愿币，实在不行梭哈，梭几把，搏一搏，单车变摩托"
 					}
 					RemCoin(sender.UserID, 100)
 					sender.Reply("推一推即将开始，已扣除100个许愿币。")
