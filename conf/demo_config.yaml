@@ -11,7 +11,7 @@ containers:
 theme: /root/xdd/admin.html #自定义主题，支持本地、网络路径（本地文件在/xdd/xdd/theme/kuduan.html，自行测试主题）
 Lim: #填写1-N 代表限制次数
 IsAddFriend: #填写true或者false  false
-Tyt:         #推一推需要的许愿币数量，默认100
+Tyt:         #推一推需要的许愿币数量，默认80
 static: ./static #静态文件 便于自定义二维码页面时，引入css、js等文件（不用动）
 master:  #管理员账户pin，有多个用'&'拼接（访问ip:8080/admin使用）可以自定义密码如  admin 后面不能有注释，配置后删除
 database:  #数据库位置 #（强迫症的我还是给它找了个家 不用动）
