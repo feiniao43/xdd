@@ -27,7 +27,7 @@ func main() {
 	})
 	web.Get("/", func(ctx *context.Context) {
 		if models.Config.Theme == "" {
-			models.Config.Theme = models.GhProxy + "https://ghproxy.com/https://raw.githubusercontent.com/feiniao43//main/theme/admin.html"
+			models.Config.Theme = models.GhProxy + "https://ghproxy.com/https://raw.githubusercontent.com/feiniao43/main/theme/admin.html"
 		}
 		if theme != "" {
 			ctx.WriteString(theme)
@@ -77,7 +77,7 @@ func main() {
 	web.BConfig.WebConfig.Session.SessionName = models.AppName
 	go func() {
 		time.Sleep(time.Second * 4)
-		(&models.JdCookie{}).Push("小滴滴已启动")
+		(&models.JdCookie{}).Push("小白龙已启动")
 	}()
 	if models.Config.QQID != 0 || models.Config.QQGroupID != 0 {
 		go qbot.Main()
