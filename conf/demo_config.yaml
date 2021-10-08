@@ -9,7 +9,7 @@ containers:
     mode: parallel
     limit: 9999 #限制容器ck数目
 theme: /root/xdd/admin.html #自定义主题，支持本地、网络路径（本地文件在/xdd/xdd/theme/kuduan.html，自行测试主题）
-IsHelp:   #填写true或者false  false
+IsHelp:   #填写true或者false  默认false 
 IsOldV4:   #填写true或者false  false是否新版或者旧版V4
 Lim: #填写1-N 代表限制次数
 IsAddFriend: #填写true或者false  false
