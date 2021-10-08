@@ -294,7 +294,7 @@ var codeSignals = []CodeSignal{
 		Command: []string{"重启", "reload", "restart", "reboot"},
 		Admin:   true,
 		Handle: func(sender *Sender) interface{} {
-			sender.Reply("小滴滴重启程序")
+			sender.Reply("小白龙重启程序")
 			Daemon()
 			return nil
 		},
