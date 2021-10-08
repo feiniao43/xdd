@@ -45,27 +45,27 @@ func initVersion() {
 }
 
 func Update(sender *Sender) error {
-	sender.Reply("小滴滴开始拉取代码")
+	sender.Reply("小白龙开始拉取代码")
 	rtn, err := exec.Command("sh", "-c", "cd "+ExecPath+" && git stash && git pull").Output()
 	if err != nil {
-		return errors.New("小滴滴拉取代失败：" + err.Error())
+		return errors.New("小白龙拉取代失败：" + err.Error())
 	}
 	t := string(rtn)
 	if !strings.Contains(t, "changed") {
 		if strings.Contains(t, "Already") || strings.Contains(t, "已经是最新") {
-			return errors.New("小滴滴已是最新版啦")
+			return errors.New("小白龙已是最新版啦")
 		} else {
-			return errors.New("小滴滴拉取代失败：" + t)
+			return errors.New("小白龙拉取代失败：" + t)
 		}
 	} else {
-		sender.Reply("小滴滴拉取代码成功")
+		sender.Reply("小白龙拉取代码成功")
 	}
-	sender.Reply("小滴滴正在编译程序")
+	sender.Reply("小白龙正在编译程序")
 	rtn, err = exec.Command("sh", "-c", "cd "+ExecPath+" && go build -o "+pname).Output()
 	if err != nil {
-		return errors.New("小滴滴编译失败：" + err.Error())
+		return errors.New("小白龙编译失败：" + err.Error())
 	} else {
-		sender.Reply("小滴滴编译成功")
+		sender.Reply("小白龙编译成功")
 	}
 	return nil
 }
