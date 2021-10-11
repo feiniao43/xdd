@@ -170,7 +170,7 @@ var handleMessage = func(msgs ...interface{}) interface{} {
 								if sender.IsQQ() {
 									ck.Update(QQ, ck.QQ)
 								}
-								sender.Reply(fmt.Sprintf("很棒，许愿币+1，余额%d,请群里面@Q群管家查看新手任务注意事项，不做完新手任务会黑号，请务必重视！", AddCoin(sender.UserID)))
+								sender.Reply(fmt.Sprintf("很棒，许愿币+1，余额%d,请群里面@Q群管家查看新手任务注意事项，不做完新手任务会黑号，请务必重视！", AdddCoin(sender.UserID, 1)))
 								logs.Info(msg)
 							}
 						}
